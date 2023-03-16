@@ -36,6 +36,7 @@ lerna-debug.log*
 
 # Env.
 .env
+config.env
 
 # dependencies
 client/node_modules
