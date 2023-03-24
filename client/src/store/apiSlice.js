@@ -7,6 +7,23 @@ export const apiSlice = createApi({
     endpoints: builder => ({
         getCategories : builder.query({
             query: () => '/api/categories'
+        }),
+        getLabels: builder.query({
+            query: () => '/api/labels'
+        }),
+        addTransaction: builder.mutation({
+            query: (initialTransaction) => ({
+                url: '/api/transaction',
+                method: 'POST',
+                body: initialTransaction
+            })
+        }),
+        deleteTransaction: builder.mutation({
+            query: recordId => ({
+                url: '/api/transaction',
+                method: 'DELETE',
+                body: recordId
+            })
         })
     })
 });
