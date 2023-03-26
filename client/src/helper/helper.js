@@ -23,3 +23,32 @@ export function getLabels(transaction) {
         .value()
     return percent;
 }
+
+export function chart_Data(transaction, custom) {
+    let bg = _.map(transaction, a => a.color)
+    bg = _.uniq(bg)
+    console.log(bg)
+
+    let dataValue = getSum(transaction)
+
+    const config = {
+        data: {
+            datasets: [{
+              data: [300, 50, 100],
+              backgroundColor: bg,
+              hoverOffset: 4,
+              borderRadius: 30,
+              spacing: 10
+            }]
+        },
+        options: {
+            cutout: 115
+        }
+    }
+
+    return custom ?? config;
+}
+
+export function getTotal(transaction) {
+    return _.sum(getSum(transaction));
+}
