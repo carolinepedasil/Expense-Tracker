@@ -27,14 +27,12 @@ export function getLabels(transaction) {
 export function chart_Data(transaction, custom) {
     let bg = _.map(transaction, a => a.color)
     bg = _.uniq(bg)
-    console.log(bg)
-
     let dataValue = getSum(transaction)
 
     const config = {
         data: {
             datasets: [{
-              data: [300, 50, 100],
+              data: dataValue,
               backgroundColor: bg,
               hoverOffset: 4,
               borderRadius: 30,
